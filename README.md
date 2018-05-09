@@ -1,7 +1,7 @@
 # Project execution
 
-Test script is included in the package tests.everwise.regression <br/>
-All Page object corresponding to the test scenario can be found in the package ui.pages <br/>
+Test script is included in the package tests.everwise.regression (src/test/java)<br/>
+All Page object corresponding to the test scenario can be found in the package ui.pages inside (src/main/java)<br/>
 
 
 # Prerequisites:
