@@ -7,7 +7,7 @@
  Chrome 66 <br/>
  Firefox 59 <br/>
  
- 
+# Execution: 
  Go the project main directory containing pom.xml (build file for maven, containing the dependencies): <br/>
  Execute the following commands for chrome and firefox to run from terminal (Assuming paths have been correctly set)
 
