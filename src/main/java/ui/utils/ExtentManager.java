@@ -27,7 +27,7 @@ public class ExtentManager {
 		return extent;
 	}
 
-	public static synchronized ExtentReports createInstance(String fileName, String projectName) {
+	public static synchronized ExtentReports createInstance(String fileName, String projectName) throws Exception {
 		ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(fileName);
 		htmlReporter.config().setTestViewChartLocation(ChartLocation.BOTTOM);
 		htmlReporter.config().setChartVisibilityOnOpen(true);
@@ -45,8 +45,10 @@ public class ExtentManager {
 		}
 		extent.setSystemInfo("Operating System", System.getProperty("os.name"));
 		extent.setSystemInfo("Java Version", System.getProperty("java.version"));
+
 		try {
 			extent.setSystemInfo("Host Name", InetAddress.getLocalHost().getHostName());
+			extent.setSystemInfo("Browser", Config.getBrowser());
 		} catch (UnknownHostException e) {
 			logger.info("ThreadID: "+Thread.currentThread().getId()+"  "+Thread.currentThread().getName() + " " + e);
 		}
