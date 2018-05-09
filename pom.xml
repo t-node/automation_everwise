@@ -373,7 +373,26 @@
 				<env.gridURL>local</env.gridURL>
 			</properties>
 		</profile>
-
+		<profile>
+			<id>everwise_firefox</id>
+			<activation>
+				<property>
+					<name>env</name>
+					<value>everwise_firefox</value>
+				</property>
+			</activation>
+			<properties>
+				<env.banner>Everwise</env.banner>
+				<env.infoScreenshots>true</env.infoScreenshots>
+				<env.execType>local</env.execType>
+				<env.url>https://q27.ewhosts.net</env.url>
+				<driver.browser>firefox</driver.browser>
+				<env.platform>MAC_OSX</env.platform>
+				<env.browserversion>59</env.browserversion>
+				<env.platform.version>10</env.platform.version>
+				<env.gridURL>local</env.gridURL>
+			</properties>
+		</profile>
 	</profiles>
 
 </project>

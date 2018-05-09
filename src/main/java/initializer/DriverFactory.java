@@ -1,5 +1,6 @@
 package initializer;
 
+import gherkin.lexer.Fi;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -23,6 +24,7 @@ import static org.openqa.selenium.chrome.ChromeDriverService.CHROME_DRIVER_EXE_P
 public class DriverFactory {
     private static final Logger logger = Logger.getLogger(DriverFactory.class);
     static File chromedriver;
+    static File firefoxdriver;
     private static Browser browser;
     private static final String PLATFORM = "platform";
     private static final String BROWSER_NAME = "browserName";
@@ -42,6 +44,7 @@ public class DriverFactory {
             case "firefoxlocal":
                 desiredCapabilities = DesiredCapabilities.firefox();
                 setDesiredCapabilities(desiredCapabilities);
+                System.setProperty("webdriver.gecko.driver", firefoxdriver.getAbsolutePath());
                 return new BrowserDriverImpl(new FirefoxDriver());
             case "firefoxgrid":
             case "chromegrid":
@@ -98,15 +101,13 @@ public class DriverFactory {
         capabilities.setCapability("chrome.switches", Arrays.asList("--start-maximized"));
         if (!Config.getExecutionType().equalsIgnoreCase("grid")) {
             chromedriver=new File(System.getProperty("user.dir")+"/lib/chromedriver");
-            capabilities.setCapability(CHROME_DRIVER_EXE_PROPERTY, System.getProperty("user.dir")+"/lib/chromedriver");
         }
 
     }
 
     private static void setFirefoxCapabilities(DesiredCapabilities capabilities) throws Exception {
         if (!Config.getExecutionType().equalsIgnoreCase("grid")) {
-            //firefoxdriver = new ChromeDriverDownloader().downloadAndExtract();
-            // capabilities.setCapability(CHROME_DRIVER_EXE_PROPERTY, chromedriver.getAbsolutePath());
+            firefoxdriver =new File(System.getProperty("user.dir")+"/lib/geckodriver");
         }
     }
 }
