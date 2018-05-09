@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<!-- parallel="classes" thread-count="1" -->
+<suite name="Everwise_Test_Suite">
+	<parameter name="report.config" value="src/test/resources/extent-config.xml" />
+	<listeners>
+		<listener class-name='initializer.CustomizedEmailableReport' />
+	</listeners>
+	<test name="regression">
+		<classes>
+			<class name="tests.everwise.regression.TestCase1"/>
+		</classes>
+	</test>
+</suite>
+
