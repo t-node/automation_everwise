@@ -1,4 +1,8 @@
-# automation_everwise
+# Project execution
+
+Test script is included in the package tests.everwise.regression <br/>
+All Page object corresponding to the test scenario can be found in the package ui.pages <br/>
+
 
 # Prerequisites:
  Operating System: MAC <br/>
